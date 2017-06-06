@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
+    @user.save
     render("users/new.html.erb")
   end
 

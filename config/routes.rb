@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "photos#index"
 
+  devise_for :users
+
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   # READ
   get "/likes", :controller => "likes", :action => "index"
   get "/likes/:id", :controller => "likes", :action => "show"
+  get "/my_likes", :controller => "likes", :action => "my_likes"
 
   # UPDATE
   get "/likes/:id/edit", :controller => "likes", :action => "edit"
@@ -69,6 +72,5 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_user/:id", :controller => "users", :action => "destroy"
 
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
