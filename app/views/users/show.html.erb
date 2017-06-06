@@ -1,1 +1,127 @@
-<h1> show user here </h1>
+<h1> list user's photos here </h1>
+
+<% @user.photos.each do |photo| %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/users/<% @user.id %>"><% @user.username %></a>
+          <small>
+            3 days ago
+          </small>
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <a href="/photos/<% @photo %>">
+          <img src="http://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDtgWrTueD8KldR7UUieEavoWK76gvao3engJFg4ADGWgQhYBvx96YJmmOmnZxUbN-tsh7oB3v-cFiGUUddaaC-WslqMKIXAsFKfna9MWTuOyOVl7yFoo4tkfxV79_Qsuz-5PC-3SvmTjQbkyam4PuiWMc5XreT2TTk__aBcOQ/" class="img-responsive">
+        </a>
+
+        <p>
+            <form action="/create_like" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="f9jmfjZKYQSYQsNaZwOXlJ3wKSzq6OkymK9JhwVwHb6vKuByIQoUdByK+TphGmlEzS3/lgkq9Pu++UaxCmkGvA==">
+
+              <input type="hidden" name="photo_id" value="108">
+
+              <input type="hidden" name="user_id" value="161">
+
+              <button class="btn btn-link">
+                <i class="fa fa-heart-o"></i>
+              </button>
+
+              steph, chelsea, alan, testtest, bobthebuilder, alex@yahoo.com, and jjj
+              like
+              this
+            </form>
+        </p>
+
+        <ul class="media-list">
+
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/<% @user.id %>"><% @user.username %></a>
+                <small>
+                  3 days ago
+                </small>
+              </h6>
+              Streetcar
+            </div>
+          </li>
+
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/144">testtest</a>
+                <small>
+                  3 days ago
+                </small>
+              </h6>
+              nice streetcar, john
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/144">testtest</a>
+                <small>
+                  3 days ago
+                </small>
+              </h6>
+              test
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/154">johnusa7</a>
+                <small>
+                  1 day ago
+                </small>
+              </h6>
+              eee
+            </div>
+          </li>
+
+          <li class="media">
+            <div class="media-body">
+              <form action="/create_comment" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden" value="XbfES4nGu08CS0v+5sU/BkOSwOPQeV4x7BRSDqOKYBSNRcJHnobOP4aDcZ7g3MHWE08WWTO7Q/jKQl04rJN7Fg==">
+
+                <input type="hidden" name="photo_id" value="108">
+
+                <input type="hidden" name="user_id" value="161">
+
+                <!-- Label and input for body -->
+                <div class="form-group">
+                  <label for="body" class="sr-only">
+                    Body
+                  </label>
+
+                  <div class="input-group">
+                    <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required>
+
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                        <i class="fa fa-commenting-o"></i>
+                      </button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <div class="btn-group btn-group-justified">
+          <a href="/photos" class="btn btn-primary">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
